@@ -183,8 +183,8 @@ h1, h2, h3 {
 }
 .profile-photo-container {
   position: relative;
-  width: 270px;
-  height: 270px;
+  width: 400px;
+  height: 400px;
   margin: 0 auto 2rem;
   overflow: visible;
   border-radius: 50%;
