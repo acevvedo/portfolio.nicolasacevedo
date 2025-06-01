@@ -2,6 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const cards = document.querySelectorAll('.card');
   const navLogo = document.querySelector('.nav-logo');
 
+  navLogo.addEventListener('click', function() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
   const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -29,6 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
   } else {
     navLogo.classList.remove('visible');
   }
+
+  
+  
 });
 
 
@@ -59,5 +69,33 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     },
     retina_detect: true
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  const navLinks = document.querySelectorAll('.nav-menu a');
+
+  // Toggle menú
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+
+  // Cerrar menú al hacer clic en un enlace
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    });
+  });
+
+  // Cerrar menú al hacer clic fuera
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.hamburger') && !e.target.closest('.nav-menu')) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }
   });
 });
